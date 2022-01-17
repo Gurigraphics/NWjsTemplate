@@ -1,0 +1,43 @@
+{
+    "name": "nwjs_template",
+    "version": "1.0.1",
+    "description": "nwjs_template",
+    "private": true,
+    "node-remote": "*://*",
+    "nodejs": true,
+    "main": "src/index.html",
+    "chromium-args": "--data-path='./saves/' --in-process-gpu --enable-node-worker --disable-plugins --disable-internal-flash --disable-popup-blocking --allow-file-access-from-files --ignore-gpu-blacklist --disable-direct-composition --disable-transparency --disable-gpu-vsync ",
+    "build": {
+        "nwVersion": "0.60.0",
+        "nwFlavor": "sdk",
+        "mac": {
+            "name": "nwjs_template",
+            "icon": "icons/mac-512x512.icns"
+        },
+        "win": {
+            "name": "nwjs_template",
+            "icon": "icons/favicon.ico"
+        },
+        "excludes": [
+            "**/node_modules/**"
+        ]
+    },
+    "scripts": {
+        "win": "build --tasks win-x64 --mirror https://dl.nwjs.io/ .",
+        "linux": "build --tasks linux-x64 --mirror https://dl.nwjs.io/ .",
+        "mac": "build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+        "production": "change nwFlavor to normal or add --disable-devtools "
+    },
+    "devDependencies": {
+        "nwjs-builder-phoenix": "^1.15.0"
+    },
+    "window": {
+        "icon": "icons/android-chrome-512x512.png",
+        "width": 840,
+        "height": 520,
+        "resizable": true,
+        "title": "nwjs_template",
+        "frame": true,
+        "transparent": false
+    }
+}
